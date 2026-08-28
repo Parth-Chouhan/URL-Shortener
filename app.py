@@ -146,4 +146,4 @@ def redirect_to_url(short_code):
             connection.close()
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
