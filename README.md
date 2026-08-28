@@ -1,14 +1,29 @@
 # 🔗 URL Shortener
 
-A simple and user-friendly URL Shortener built using **Python, Flask, MySQL, HTML, CSS, and JavaScript**.
+<p align="center">
+  <strong>A simple, fast, and user-friendly URL shortening web application.</strong>
+</p>
 
-The application converts long URLs into short, easy-to-share links. Each generated short code is stored in a MySQL database and can be used to redirect users back to the original URL.
+<p align="center">
+  Built with Python, Flask, MySQL, HTML, CSS, and JavaScript.
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge&logo=python&logoColor=white">
+  <img src="https://img.shields.io/badge/Flask-Web%20Framework-black?style=for-the-badge&logo=flask&logoColor=white">
+  <img src="https://img.shields.io/badge/MySQL-Database-orange?style=for-the-badge&logo=mysql&logoColor=white">
+  <img src="https://img.shields.io/badge/HTML5-Frontend-E34F26?style=for-the-badge&logo=html5&logoColor=white">
+  <img src="https://img.shields.io/badge/CSS3-Styling-1572B6?style=for-the-badge&logo=css3&logoColor=white">
+  <img src="https://img.shields.io/badge/JavaScript-Frontend-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
+</p>
 
 ---
 
-## 📌 Project Overview
+## 📌 Overview
 
-Long URLs can be difficult to share, remember, and manage. This project provides a simple solution by converting a long URL into a compact short URL.
+Long URLs can be difficult to share, remember, and manage.
+
+**URL Shortener** provides a simple solution by converting long URLs into short, easy-to-share links.
 
 For example:
 
@@ -19,34 +34,34 @@ https://www.example.com/this-is-a-very-long-url
 Short URL:
 http://127.0.0.1:5000/aB72xQ
 
-When the generated short URL is accessed, the application looks up the corresponding original URL in the database and redirects the user automatically.
+When a user opens the generated short URL, the application retrieves the corresponding original URL from the MySQL database and automatically redirects the user to it.
 
-The project was developed as part of the GeeksforGeeks (GFG) project task.
+This project was developed as part of the GeeksforGeeks Recruitment Task.
 
 ✨ Features
 🔗 Convert long URLs into short URLs
 🔐 Generate unique 6-character short codes
-💾 Store URL mappings in MySQL
+💾 Store URL mappings using MySQL
 🔄 Redirect short URLs to their original destinations
 ✅ Validate URL format
 ⚠️ Handle empty URL inputs
 ⚠️ Handle invalid URL inputs
 ❌ Handle unknown short codes
-♻️ Return the existing short URL when the same URL is submitted again
+♻️ Prevent duplicate entries for the same URL
 🛡️ Keep database credentials outside the source code
 📱 Responsive and clean user interface
-🗄️ Persistent URL storage using MySQL
-🛠️ Technologies Used
+🗄️ Persistent URL storage
+🛠️ Tech Stack
 Technology	Purpose
-Python	Backend programming language
-Flask	Web framework and API routing
-MySQL	Database for storing URL mappings
+Python	Backend programming
+Flask	Web framework and routing
+MySQL	Persistent database storage
 HTML5	Frontend structure
-CSS3	User interface styling
-JavaScript	Frontend interaction and API requests
-MySQL Connector/Python	Python-MySQL communication
-python-dotenv	Loading environment variables
-Git & GitHub	Version control and source-code management
+CSS3	UI styling and responsiveness
+JavaScript	Frontend interaction and API communication
+MySQL Connector/Python	Python-MySQL connectivity
+python-dotenv	Environment variable management
+Git & GitHub	Version control and source management
 🏗️ Project Structure
 URL-Shortener/
 │
@@ -63,114 +78,92 @@ URL-Shortener/
 │
 └── static/
     └── style.css
-Important Files
-
-app.py
-
-Contains the main Flask application, URL validation, short-code generation, URL shortening logic, and redirect functionality.
-
-database.py
-
-Handles the connection between the Flask application and the MySQL database.
-
-templates/index.html
-
-Contains the structure of the web interface and JavaScript used to communicate with the Flask backend.
-
-static/style.css
-
-Contains the styling and responsive design of the application.
-
-requirements.txt
-
-Contains the Python dependencies required to run the project.
-
-.env.example
-
-Provides an example of the environment variables required for database configuration.
-
-.gitignore
-
-Prevents sensitive files, virtual environments, and unnecessary generated files from being uploaded to GitHub.
-
+📂 File Description
+File / Folder	Description
+app.py	Main Flask application containing routes, URL validation, short-code generation, shortening logic, and redirects
+database.py	Handles the connection between Flask and MySQL
+templates/index.html	Contains the webpage structure and frontend JavaScript
+static/style.css	Contains the application's styling and responsive design
+requirements.txt	Lists the Python packages required by the project
+.env.example	Template showing the required environment variables
+.gitignore	Prevents sensitive and unnecessary files from being committed
 🔄 Application Workflow
 
-The application follows the workflow below:
+The application follows a simple request-and-redirect workflow.
 
-                    USER
-                      │
-                      ▼
-             ┌────────────────┐
-             │ Enter Long URL │
-             └───────┬────────┘
-                     │
-                     ▼
-             ┌────────────────┐
-             │   JavaScript   │
-             │ Send POST      │
-             │ /shorten       │
-             └───────┬────────┘
-                     │
-                     ▼
-             ┌────────────────┐
-             │     Flask      │
-             │ Backend        │
-             └───────┬────────┘
-                     │
-                     ▼
-             ┌────────────────┐
-             │ Validate URL   │
-             └───────┬────────┘
-                     │
-                     ▼
-          ┌──────────────────────┐
-          │ URL already exists?  │
-          └──────────┬───────────┘
-                     │
-              ┌──────┴──────┐
-              │             │
-             YES            NO
-              │             │
-              ▼             ▼
-       Return existing   Generate
-       short code        unique code
-              │             │
-              │             ▼
-              │       Store in MySQL
-              │             │
-              └──────┬──────┘
-                     │
-                     ▼
-             Return Short URL
-                     │
-                     ▼
-                    USER
-                     │
-                     │ Opens short URL
-                     ▼
-             ┌────────────────┐
-             │ Flask          │
-             │ /<short_code>  │
-             └───────┬────────┘
-                     │
-                     ▼
-             Search MySQL
-                     │
-                     ▼
-             Original URL
-                     │
-                     ▼
-                redirect()
-                     │
-                     ▼
-            Original Website
+                         USER
+                           │
+                           ▼
+                  ┌─────────────────┐
+                  │  Enter Long URL │
+                  └────────┬────────┘
+                           │
+                           ▼
+                  ┌─────────────────┐
+                  │   JavaScript    │
+                  │ POST /shorten   │
+                  └────────┬────────┘
+                           │
+                           ▼
+                  ┌─────────────────┐
+                  │      Flask      │
+                  │     Backend     │
+                  └────────┬────────┘
+                           │
+                           ▼
+                  ┌─────────────────┐
+                  │   Validate URL  │
+                  └────────┬────────┘
+                           │
+                           ▼
+               ┌────────────────────────┐
+               │  URL already exists?  │
+               └───────────┬────────────┘
+                           │
+                    ┌──────┴──────┐
+                    │             │
+                   YES            NO
+                    │             │
+                    ▼             ▼
+             Return existing   Generate
+             short code        unique code
+                    │             │
+                    │             ▼
+                    │       Store in MySQL
+                    │             │
+                    └──────┬──────┘
+                           │
+                           ▼
+                  Return Short URL
+                           │
+                           ▼
+                          USER
+                           │
+                           │ Opens short URL
+                           ▼
+                  ┌─────────────────┐
+                  │ Flask           │
+                  │ /<short_code>   │
+                  └────────┬────────┘
+                           │
+                           ▼
+                    Search MySQL
+                           │
+                           ▼
+                     Original URL
+                           │
+                           ▼
+                      redirect()
+                           │
+                           ▼
+                   Original Website
 🗄️ Database Design
 
-The project uses a MySQL database named:
+The application uses a MySQL database named:
 
 url_shortener
 
-The database contains a table called:
+The main table is:
 
 urls
 Table Structure
@@ -190,6 +183,9 @@ CREATE TABLE urls (
     short_code VARCHAR(10) NOT NULL UNIQUE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+The UNIQUE constraint on short_code ensures that two database records cannot use the same short code.
+
 🔐 Environment Configuration
 
 Database credentials are stored using environment variables instead of being hardcoded into the application.
@@ -198,7 +194,7 @@ Create a file named:
 
 .env
 
-in the root directory.
+in the project root.
 
 Add:
 
@@ -207,23 +203,23 @@ DB_USER=root
 DB_PASSWORD=your_mysql_password
 DB_NAME=url_shortener
 
-Replace your_mysql_password with your local MySQL password.
+Replace:
 
-Important
+your_mysql_password
 
-The .env file should never be uploaded to GitHub because it contains database credentials.
+with your local MySQL password.
 
-The repository includes .env.example as a safe template:
+⚠️ Security Note
 
-DB_HOST=localhost
-DB_USER=root
-DB_PASSWORD=your_mysql_password
-DB_NAME=url_shortener
+The .env file contains sensitive database credentials and must not be uploaded to GitHub.
+
+The project includes .env.example as a safe configuration template.
+
 ⚙️ Installation
 1. Clone the Repository
 git clone https://github.com/Parth-Chouhan/URL-Shortener.git
 
-Navigate into the project:
+Navigate into the project directory:
 
 cd URL-Shortener
 2. Create a Virtual Environment
@@ -232,7 +228,7 @@ On Windows:
 
 python -m venv venv
 
-Activate the virtual environment:
+Activate it:
 
 venv\Scripts\activate
 3. Install Dependencies
@@ -241,11 +237,11 @@ pip install -r requirements.txt
 
 Make sure your local MySQL server is running.
 
-Create the database and table using the SQL commands provided in the Database Design section.
+Create the database and urls table using the SQL schema provided in the Database Design section.
 
 5. Configure Environment Variables
 
-Create a .env file:
+Create the .env file in the project root:
 
 DB_HOST=localhost
 DB_USER=root
@@ -261,79 +257,52 @@ The application will run locally at:
 
 http://127.0.0.1:5000
 
-Open the URL in a web browser.
+Open the address in your browser.
 
 🖥️ How to Use
-Step 1 — Enter a URL
+1️⃣ Enter a URL
 
 Enter a valid long URL into the input field.
 
 Example:
 
 https://www.google.com
-Step 2 — Click "Shorten URL"
+2️⃣ Shorten the URL
+
+Click:
+
+Shorten URL
 
 The frontend sends the URL to the Flask backend.
 
-Step 3 — URL Validation
+3️⃣ URL Validation
 
-The backend checks whether the URL is valid.
+The backend verifies that the URL contains a valid http or https scheme and a valid network location.
 
-Step 4 — Generate Short Code
+4️⃣ Generate Short Code
 
 A random 6-character code is generated using letters and numbers.
 
 Example:
 
 aB72xQ
-Step 5 — Store the Mapping
+5️⃣ Store the Mapping
 
-The application stores the relationship in MySQL:
+The URL and short code are stored in MySQL:
 
 aB72xQ → https://www.google.com
-Step 6 — Display the Short URL
+6️⃣ Receive the Short URL
 
-The application displays:
+The application returns:
 
 http://127.0.0.1:5000/aB72xQ
-Step 7 — Redirect
+7️⃣ Redirect
 
-When the short URL is opened, Flask searches the database for aB72xQ and redirects the user to:
-
-https://www.google.com
-🧪 Validation and Error Handling
-
-The application handles several possible invalid scenarios.
-
-Empty URL
-
-If no URL is entered:
-
-URL cannot be empty
-Invalid URL
-
-For example:
-
-hello
-
-The application responds with:
-
-Please enter a valid URL
-Unknown Short Code
-
-If a short code does not exist:
-
-Short URL not found
-
-with a 404 response.
-
-Database Error
-
-If a database operation fails, the application returns an appropriate error message instead of exposing database details to the user.
+When the short URL is opened, Flask searches the database for aB72xQ, retrieves the original URL, and redirects the user to it.
 
 ♻️ Duplicate URL Handling
 
-If the same original URL is submitted multiple times, the application first checks whether that URL already exists in the database.
+Before generating a new short code, the application checks whether the submitted URL already exists in the database.
 
 For example:
 
@@ -351,17 +320,17 @@ Existing record found
         ↓
 aB72xQ
 
-This prevents unnecessary duplicate URL mappings.
+This prevents unnecessary duplicate mappings.
 
 🔑 Short Code Generation
 
-The application generates a 6-character code using:
+Each short URL uses a 6-character code consisting of:
 
 Uppercase letters
 Lowercase letters
 Numbers
 
-Example:
+Examples:
 
 aB72xQ
 K9mP2z
@@ -369,17 +338,44 @@ X7rT21
 
 The Python secrets module is used to randomly select characters.
 
-Before storing a generated code, the application checks the database to make sure the code is not already being used.
+Before storing a generated code, the application checks whether the code is already present in the database.
 
-Additionally, the MySQL database applies a UNIQUE constraint to the short_code column.
+The database also enforces uniqueness through the UNIQUE constraint on short_code.
+
+🧪 Validation & Error Handling
+
+The application handles several invalid scenarios.
+
+Empty URL
+URL cannot be empty
+Invalid URL
+
+Input:
+
+hello
+
+Response:
+
+Please enter a valid URL
+Unknown Short Code
+
+If a short code does not exist:
+
+Short URL not found
+
+The application returns a 404 response.
+
+Database Errors
+
+If a database operation fails, the application returns a user-friendly error message instead of exposing internal database details.
 
 🔒 Security Considerations
 
-The project follows several basic security practices:
+The project implements several basic security practices.
 
 Environment Variables
 
-Database credentials are stored in .env rather than directly inside the source code.
+Database credentials are stored in .env instead of being hardcoded into the source code.
 
 Parameterized SQL Queries
 
@@ -390,37 +386,35 @@ cursor.execute(
     (original_url,)
 )
 
-This helps prevent SQL injection.
+This helps protect against SQL injection.
 
-Secure Code Generation
+Secure Short-Code Generation
 
-The Python secrets module is used instead of a predictable random-number approach for generating short codes.
+The Python secrets module is used to generate short codes rather than relying on predictable random values.
 
 Git Protection
 
-The .gitignore file prevents sensitive and unnecessary files such as:
+.gitignore prevents sensitive and unnecessary files from being committed:
 
 .env
 venv/
+.venv/
 __pycache__/
-
-from being committed to the repository.
-
+*.pyc
+.vscode/
 📚 Key Concepts Demonstrated
 
 This project demonstrates practical implementation of:
 
 Flask routing
 HTTP GET and POST requests
-REST-style API communication
 JSON request and response handling
 HTML forms
 JavaScript Fetch API
 URL validation
-Random short-code generation
+Short-code generation
 MySQL database connectivity
-SQL queries
-CRUD-related database operations
+SQL database operations
 Dynamic Flask routes
 HTTP redirects
 Error handling
@@ -443,26 +437,23 @@ Managing environment variables securely.
 Using Git and GitHub for version control.
 🚀 Future Improvements
 
-The current project intentionally focuses on the core URL-shortening requirements.
+The current implementation focuses on the core URL-shortening requirements.
 
 Possible future improvements include:
 
-URL expiration
-Click analytics
-Custom short URLs
-QR code generation
-User accounts
-URL management dashboard
-Copy-to-clipboard functionality
-Rate limiting
-Deployment with a production database
+📊 Click analytics
+⏳ URL expiration
+✏️ Custom short URLs
+📱 QR code generation
+👤 User accounts
+📋 URL management dashboard
+📋 Copy-to-clipboard functionality
+🛡️ Rate limiting
+🌐 Production deployment
 
 These features are outside the scope of the current implementation.
 
 📌 Project Requirements
-
-The project satisfies the following requirements:
-
 Requirement	Status
 Enter a valid long URL	✅
 Generate a unique short URL/code	✅
@@ -474,13 +465,10 @@ Store URL mappings	✅
 Provide source code	✅
 Provide project explanation	✅
 GitHub repository	✅
+👨‍💻 Author
 
-## Author
+Parth Chouhan
 
-**Parth Chouhan**
+GeeksforGeeks Recruitment Task — URL Shortener
 
-*GeeksforGeeks Recruitment Task — URL Shortener*
-
-<p align="center">
-  <img src="https://img.shields.io/badge/-2F8D46?style=for-the-badge&logoColor=white" width="100%" height="8">
-</p>
+<p align="center"> <img src="https://img.shields.io/badge/-2F8D46?style=for-the-badge&logoColor=white" width="100%" height="8"> </p> ```
