@@ -50,42 +50,42 @@ This project was developed as part of the GeeksforGeeks Recruitment Task.
 - 📱 Clean and responsive user interface
 - 🗄️ Persistent URL storage
 🛠️ Tech Stack
--Technology	Purpose
--Python	Backend programming
--Flask	Web framework and routing
--MySQL	Persistent database storage
--HTML5	Frontend structure
--CSS3	UI styling and responsiveness
--JavaScript	Frontend interaction and API communication
--MySQL Connector/Python	Python-MySQL connectivity
--python-dotenv	Environment variable management
--Git & GitHub	Version control and source management
+- Technology	Purpose
+- Python	Backend programming
+- Flask	Web framework and routing
+- MySQL	Persistent database storage
+- HTML5	Frontend structure
+- CSS3	UI styling and responsiveness
+- JavaScript	Frontend interaction and API communication
+- MySQL Connector/Python	Python-MySQL connectivity
+- python-dotenv	Environment variable management
+- Git & GitHub	Version control and source management
 ## 🏗️ Project Structure
 URL-Shortener/
-│
-├── app.py
-├── database.py
-├── requirements.txt
-├── README.md
-├── .gitignore
-├── .env.example
-├── .python-version
-│
-├── templates/
-│   └── index.html
-│
-└── static/
-    └── style.css
+- │
+- ├── app.py
+- ├── database.py
+- ├── requirements.txt
+- ├── README.md
+- ├── .gitignore
+- ├── .env.example
+- ├── .python-version
+- │
+- ├── templates/
+- │   └── index.html
+- │
+- └── static/
+  -   └── style.css
 
 ### 📂 File Description
-File / Folder	Description
-app.py	Main Flask application containing routes, URL validation, short-code generation, shortening logic, and redirects
-database.py	Handles the connection between Flask and MySQL
-templates/index.html	Contains the webpage structure and frontend JavaScript
-static/style.css	Contains the application's styling and responsive design
-requirements.txt	Lists the Python packages required by the project
-.env.example	Template showing the required environment variables
-.gitignore	Prevents sensitive and unnecessary files from being committed
+- File / Folder	Description
+- app.py	Main Flask application containing routes, URL validation, short-code generation, shortening logic, and redirects
+- database.py	Handles the connection between Flask and MySQL
+- templates/index.html	Contains the webpage structure and frontend JavaScript
+- static/style.css	Contains the application's styling and responsive design
+- requirements.txt	Lists the Python packages required by the project
+- .env.example	Template showing the required environment variables
+- .gitignore	Prevents sensitive and unnecessary files from being committed
 
 ### 🔄 Application Workflow
 
