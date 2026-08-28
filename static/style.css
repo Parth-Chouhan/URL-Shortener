@@ -1,0 +1,187 @@
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #1f2937;
+}
+
+
+.container {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+}
+
+
+.card {
+    width: 100%;
+    max-width: 550px;
+
+    background: white;
+
+    padding: 45px;
+
+    border-radius: 16px;
+
+    text-align: center;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+
+.icon {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+
+h1 {
+    margin: 0;
+
+    font-size: 32px;
+}
+
+
+.subtitle {
+    margin-top: 10px;
+    margin-bottom: 30px;
+
+    color: #6b7280;
+
+    font-size: 16px;
+}
+
+
+form {
+    text-align: left;
+}
+
+
+label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-weight: bold;
+}
+
+
+input {
+    width: 100%;
+
+    padding: 14px 15px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+
+input:focus {
+    border-color: #4f46e5;
+
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+
+button {
+    width: 100%;
+
+    margin-top: 15px;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #4f46e5;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+button:hover {
+    background: #4338ca;
+}
+
+
+.result {
+    margin-top: 25px;
+
+    padding: 15px;
+
+    border-radius: 8px;
+
+    display: none;
+}
+
+
+.result.success {
+    display: block;
+
+    background: #ecfdf5;
+}
+
+
+.result.error {
+    display: block;
+
+    background: #fef2f2;
+
+    color: #b91c1c;
+}
+
+
+.result p {
+    margin-top: 0;
+    font-weight: bold;
+}
+
+
+.result a {
+    word-break: break-all;
+
+    color: #4f46e5;
+
+    text-decoration: none;
+}
+
+
+.result a:hover {
+    text-decoration: underline;
+}
+
+
+@media (max-width: 600px) {
+
+    .card {
+        padding: 30px 20px;
+    }
+
+    h1 {
+        font-size: 27px;
+    }
+
+}

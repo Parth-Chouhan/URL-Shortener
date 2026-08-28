@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>URL Shortener</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+</head>
+
+<body>
+
+    <main class="container">
+
+        <div class="card">
+
+            <div class="icon">🔗</div>
+
+            <h1>URL Shortener</h1>
+
+            <p class="subtitle">
+                Turn long links into short, shareable URLs.
+            </p>
+
+            <form id="urlForm">
+
+                <label for="urlInput">
+                    Enter your URL
+                </label>
+
+                <input
+                    type="url"
+                    id="urlInput"
+                    placeholder="https://example.com/very-long-url"
+                    required
+                >
+
+                <button type="submit">
+                    Shorten URL
+                </button>
+
+            </form>
+
+            <div id="result" class="result"></div>
+
+        </div>
+
+    </main>
+
+
+    <script>
+
+        const form = document.getElementById("urlForm");
+        const input = document.getElementById("urlInput");
+        const result = document.getElementById("result");
+
+
+        form.addEventListener("submit", async function(event) {
+
+            event.preventDefault();
+
+            const url = input.value.trim();
+
+            result.textContent = "Shortening...";
+            result.className = "result";
+
+
+            try {
+
+                const response = await fetch("/shorten", {
+
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify({
+                        url: url
+                    })
+
+                });
+
+
+                const data = await response.json();
+
+
+                if (!response.ok) {
+
+                    result.textContent = data.error;
+                    result.className = "result error";
+
+                    return;
+
+                }
+
+
+                result.innerHTML = `
+                    <p>Your shortened URL:</p>
+
+                    <a
+                        href="${data.short_url}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        ${data.short_url}
+                    </a>
+                `;
+
+                result.className = "result success";
+
+
+            } catch (error) {
+
+                result.textContent =
+                    "Something went wrong. Please try again.";
+
+                result.className = "result error";
+
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>
