@@ -12,9 +12,6 @@
   <img src="https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge&logo=python&logoColor=white">
   <img src="https://img.shields.io/badge/Flask-Web%20Framework-black?style=for-the-badge&logo=flask&logoColor=white">
   <img src="https://img.shields.io/badge/MySQL-Database-orange?style=for-the-badge&logo=mysql&logoColor=white">
-  <img src="https://img.shields.io/badge/HTML5-Frontend-E34F26?style=for-the-badge&logo=html5&logoColor=white">
-  <img src="https://img.shields.io/badge/CSS3-Styling-1572B6?style=for-the-badge&logo=css3&logoColor=white">
-  <img src="https://img.shields.io/badge/JavaScript-Frontend-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
 </p>
 
 ---
@@ -25,7 +22,7 @@ Long URLs can be difficult to share, remember, and manage.
 
 **URL Shortener** provides a simple solution by converting long URLs into short, easy-to-share links.
 
-For example:
+### Example
 
 ```text
 Original URL:
@@ -35,8 +32,11 @@ Short URL:
 http://127.0.0.1:5000/aB72xQ
 ```
 
+When a user opens the generated short URL, the application retrieves the corresponding original URL from the MySQL database and automatically redirects the user to it.
 
-✨ Features
+This project was developed as part of the GeeksforGeeks Recruitment Task.
+
+## ✨ Features
 🔗 Convert long URLs into short URLs
 🔐 Generate unique 6-character short codes
 💾 Store URL mappings using MySQL
@@ -47,7 +47,7 @@ http://127.0.0.1:5000/aB72xQ
 ❌ Handle unknown short codes
 ♻️ Prevent duplicate entries for the same URL
 🛡️ Keep database credentials outside the source code
-📱 Responsive and clean user interface
+📱 Clean and responsive user interface
 🗄️ Persistent URL storage
 🛠️ Tech Stack
 Technology	Purpose
@@ -60,7 +60,7 @@ JavaScript	Frontend interaction and API communication
 MySQL Connector/Python	Python-MySQL connectivity
 python-dotenv	Environment variable management
 Git & GitHub	Version control and source management
-🏗️ Project Structure
+## 🏗️ Project Structure
 URL-Shortener/
 │
 ├── app.py
@@ -76,7 +76,8 @@ URL-Shortener/
 │
 └── static/
     └── style.css
-📂 File Description
+
+### 📂 File Description
 File / Folder	Description
 app.py	Main Flask application containing routes, URL validation, short-code generation, shortening logic, and redirects
 database.py	Handles the connection between Flask and MySQL
@@ -85,9 +86,10 @@ static/style.css	Contains the application's styling and responsive design
 requirements.txt	Lists the Python packages required by the project
 .env.example	Template showing the required environment variables
 .gitignore	Prevents sensitive and unnecessary files from being committed
-🔄 Application Workflow
 
-The application follows a simple request-and-redirect workflow.
+### 🔄 Application Workflow
+
+The application follows a simple request-and-redirect workflow:
 
                          USER
                            │
@@ -155,7 +157,7 @@ The application follows a simple request-and-redirect workflow.
                            │
                            ▼
                    Original Website
-🗄️ Database Design
+ ### 🗄️ Database Design
 
 The application uses a MySQL database named:
 
@@ -184,7 +186,7 @@ CREATE TABLE urls (
 
 The UNIQUE constraint on short_code ensures that two database records cannot use the same short code.
 
-🔐 Environment Configuration
+### 🔐 Environment Configuration
 
 Database credentials are stored using environment variables instead of being hardcoded into the application.
 
@@ -201,11 +203,7 @@ DB_USER=root
 DB_PASSWORD=your_mysql_password
 DB_NAME=url_shortener
 
-Replace:
-
-your_mysql_password
-
-with your local MySQL password.
+Replace your_mysql_password with your local MySQL password.
 
 ⚠️ Security Note
 
@@ -213,14 +211,14 @@ The .env file contains sensitive database credentials and must not be uploaded t
 
 The project includes .env.example as a safe configuration template.
 
-⚙️ Installation
-1. Clone the Repository
+### ⚙️ Installation
+1️⃣ Clone the Repository
 git clone https://github.com/Parth-Chouhan/URL-Shortener.git
 
 Navigate into the project directory:
 
 cd URL-Shortener
-2. Create a Virtual Environment
+2️⃣ Create a Virtual Environment
 
 On Windows:
 
@@ -229,15 +227,15 @@ python -m venv venv
 Activate it:
 
 venv\Scripts\activate
-3. Install Dependencies
+3️⃣ Install Dependencies
 pip install -r requirements.txt
-4. Configure MySQL
+4️⃣ Configure MySQL
 
 Make sure your local MySQL server is running.
 
-Create the database and urls table using the SQL schema provided in the Database Design section.
+Create the url_shortener database and urls table using the SQL schema provided above.
 
-5. Configure Environment Variables
+5️⃣ Configure Environment Variables
 
 Create the .env file in the project root:
 
@@ -267,9 +265,7 @@ Example:
 https://www.google.com
 2️⃣ Shorten the URL
 
-Click:
-
-Shorten URL
+Click the Shorten URL button.
 
 The frontend sends the URL to the Flask backend.
 
@@ -298,7 +294,7 @@ http://127.0.0.1:5000/aB72xQ
 
 When the short URL is opened, Flask searches the database for aB72xQ, retrieves the original URL, and redirects the user to it.
 
-♻️ Duplicate URL Handling
+### ♻️ Duplicate URL Handling
 
 Before generating a new short code, the application checks whether the submitted URL already exists in the database.
 
@@ -340,7 +336,7 @@ Before storing a generated code, the application checks whether the code is alre
 
 The database also enforces uniqueness through the UNIQUE constraint on short_code.
 
-🧪 Validation & Error Handling
+### 🧪 Validation & Error Handling
 
 The application handles several invalid scenarios.
 
@@ -367,7 +363,7 @@ Database Errors
 
 If a database operation fails, the application returns a user-friendly error message instead of exposing internal database details.
 
-🔒 Security Considerations
+### 🔒 Security Considerations
 
 The project implements several basic security practices.
 
@@ -400,7 +396,7 @@ venv/
 __pycache__/
 *.pyc
 .vscode/
-📚 Key Concepts Demonstrated
+## 📚 Key Concepts Demonstrated
 
 This project demonstrates practical implementation of:
 
@@ -463,7 +459,8 @@ Store URL mappings	✅
 Provide source code	✅
 Provide project explanation	✅
 GitHub repository	✅
-👨‍💻 Author
+
+### 👨‍💻 Author
 
 Parth Chouhan
 
