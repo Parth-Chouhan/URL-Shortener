@@ -590,4 +590,3 @@ These features are outside the scope of the current implementation.
 <p align="center">
   <img src="https://img.shields.io/badge/-2F8D46?style=for-the-badge&logoColor=white" width="100%" height="8">
 </p>
-```
