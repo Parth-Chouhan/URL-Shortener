@@ -33,10 +33,8 @@ https://www.example.com/this-is-a-very-long-url
 
 Short URL:
 http://127.0.0.1:5000/aB72xQ
+```
 
-When a user opens the generated short URL, the application retrieves the corresponding original URL from the MySQL database and automatically redirects the user to it.
-
-This project was developed as part of the GeeksforGeeks Recruitment Task.
 
 ✨ Features
 🔗 Convert long URLs into short URLs
