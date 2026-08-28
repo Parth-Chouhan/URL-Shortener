@@ -37,29 +37,29 @@ When a user opens the generated short URL, the application retrieves the corresp
 This project was developed as part of the GeeksforGeeks Recruitment Task.
 
 ## ✨ Features
-🔗 Convert long URLs into short URLs
-🔐 Generate unique 6-character short codes
-💾 Store URL mappings using MySQL
-🔄 Redirect short URLs to their original destinations
-✅ Validate URL format
-⚠️ Handle empty URL inputs
-⚠️ Handle invalid URL inputs
-❌ Handle unknown short codes
-♻️ Prevent duplicate entries for the same URL
-🛡️ Keep database credentials outside the source code
-📱 Clean and responsive user interface
-🗄️ Persistent URL storage
+-🔗 Convert long URLs into short URLs
+-🔐 Generate unique 6-character short codes
+-💾 Store URL mappings using MySQL
+-🔄 Redirect short URLs to their original destinations
+-✅ Validate URL format
+-⚠️ Handle empty URL inputs
+-⚠️ Handle invalid URL inputs
+-❌ Handle unknown short codes
+-♻️ Prevent duplicate entries for the same URL
+-🛡️ Keep database credentials outside the source code
+-📱 Clean and responsive user interface
+-🗄️ Persistent URL storage
 🛠️ Tech Stack
-Technology	Purpose
-Python	Backend programming
-Flask	Web framework and routing
-MySQL	Persistent database storage
-HTML5	Frontend structure
-CSS3	UI styling and responsiveness
-JavaScript	Frontend interaction and API communication
-MySQL Connector/Python	Python-MySQL connectivity
-python-dotenv	Environment variable management
-Git & GitHub	Version control and source management
+-Technology	Purpose
+-Python	Backend programming
+-Flask	Web framework and routing
+-MySQL	Persistent database storage
+-HTML5	Frontend structure
+-CSS3	UI styling and responsiveness
+-JavaScript	Frontend interaction and API communication
+-MySQL Connector/Python	Python-MySQL connectivity
+-python-dotenv	Environment variable management
+-Git & GitHub	Version control and source management
 ## 🏗️ Project Structure
 URL-Shortener/
 │
